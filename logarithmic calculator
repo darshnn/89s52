@@ -1,0 +1,61 @@
+;y=logb a
+;y = y1 . y2 
+;final code
+
+org 0
+	mov a,#100;       ;value
+    mov r3,a;
+	mov b,#10;        ;base value
+	mov r1,b          ;store data
+	mov p2,#00;
+	mov p1,#00;
+	lol:
+	inc p2	          ;dividing,inc for counting
+       div ab
+	   mov b,r1
+	   mov r2,a
+       cjne a,#00,lol
+	   dec p2
+	   mov a,p2
+	   mov b,p2
+	   rlc a
+	   rlc a
+	   rlc a
+	   rlc a
+	   mov p1,a
+	   	   
+	  mov a,r3         ;after decimal
+	  mov p2,b
+	rofl:
+	  dec p2
+	  mov b,r1
+	  div ab
+	  mov r5,a
+	  mov r2,p2
+	  mov b,r1
+	  cjne r2,#00,rofl
+	  	  
+	  mov p2,#10
+	  man:
+	  mov a,r5
+	  mov b,r3
+	  dec p2
+	  mul ab
+	  mov r4,p2
+	  mov r5,a
+	  cjne r4,#00,man
+	  
+     mov a,r5
+	 mov b,r1
+	 lol1:
+       inc p1
+	   div ab
+	   mov b,r1
+	   mov r2,a
+       cjne a,#00,lol1
+	   dec p1
+	   mov a,p1
+	   cpl a
+	   mov p1,a
+	   	
+end
